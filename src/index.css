@@ -1,0 +1,459 @@
+:root {
+  --primary: #ea580c;
+  --primary-hover: #c2410c;
+  --primary-light: #ffedd5;
+  --accent-gold: #eab308;
+  --accent-red: #dc2626;
+  --success: #16a34a;
+  --dark: #0f172a;
+  --dark-surface: #1e293b;
+  --light-bg: #fffbf5;
+  --card-bg: #ffffff;
+  --border-color: #fed7aa;
+  --text-main: #1c1917;
+  --text-muted: #78716c;
+  --shadow-sm: 0 2px 8px rgba(234, 88, 12, 0.08);
+  --shadow-md: 0 8px 24px rgba(234, 88, 12, 0.12);
+  --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.15);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(254, 215, 170, 0.5);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(234, 88, 12, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(234, 88, 12, 0.7); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 3s infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--dark);
+  border: 2px solid #fed7aa;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: #fff7ed;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+  background: transparent;
+  color: var(--accent-red);
+  border: 1.5px solid #fca5a5;
+}
+
+.btn-outline-danger:hover {
+  background: #fef2f2;
+  border-color: var(--accent-red);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-veg {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.badge-nonveg {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.badge-hero {
+  background: rgba(255, 247, 237, 0.95);
+  color: var(--primary);
+  border: 1px solid #ffedd5;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+}
+
+/* Thermal Printer CSS Rules */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt, #thermal-receipt * {
+    visibility: visible;
+  }
+  #thermal-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 12px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .receipt-no-print {
+    display: none !important;
+  }
+}
+
+/* 3D Animated Logo Badge Styles */
+@keyframes logo3DFloat {
+  0%, 100% {
+    transform: perspective(800px) translateY(0px) rotateX(10deg) rotateY(-10deg) scale(1);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(234, 88, 12, 0.4), inset 0 0 0 3px rgba(255, 237, 213, 0.8), 0 0 20px rgba(234, 88, 12, 0.3);
+  }
+  50% {
+    transform: perspective(800px) translateY(-12px) rotateX(-8deg) rotateY(8deg) scale(1.05);
+    box-shadow: 0 28px 50px rgba(0, 0, 0, 0.45), 0 14px 30px rgba(234, 88, 12, 0.6), inset 0 0 0 4px rgba(255, 255, 255, 0.95), 0 0 35px rgba(234, 88, 12, 0.6);
+  }
+}
+
+.logo-3d-badge {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #7c2d12 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  animation: logo3DFloat 5s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.logo-3d-badge:hover {
+  transform: perspective(800px) translateY(-18px) rotateX(0deg) rotateY(15deg) scale(1.12) !important;
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.5), 0 16px 36px rgba(234, 88, 12, 0.7), 0 0 40px rgba(234, 88, 12, 0.8) !important;
+}
+
+.logo-3d-badge img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile Responsiveness Improvements (Screen widths <= 768px) */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .app-root-container {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  .app-main-content {
+    height: auto !important;
+    max-height: none !important;
+    flex: 1 0 auto !important;
+    overflow: visible !important;
+  }
+
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* 1. Home Section Mobile View */
+  section#home {
+    height: auto !important;
+    max-height: none !important;
+    min-height: calc(100vh - 70px) !important;
+    padding: 2.25rem 0 3.5rem !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.2 !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .hero-buttons-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-buttons-container .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.85rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-badges-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem 1rem !important;
+  }
+
+  /* 2. Menu Section Mobile View - 2 Column Layout as per reference image 2 */
+  section#menu {
+    padding: 2rem 0 4rem !important;
+  }
+
+  .menu-food-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .food-card-container {
+    border-radius: 16px !important;
+  }
+
+  .food-card-image-wrap {
+    height: 125px !important;
+  }
+
+  .food-card-badges, .food-card-rating {
+    display: none !important;
+  }
+
+  .food-card-body {
+    padding: 0.75rem !important;
+  }
+
+  .food-card-title {
+    font-size: 0.92rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.2rem !important;
+    font-weight: 700 !important;
+  }
+
+  .food-card-desc, .food-card-price-label {
+    display: none !important;
+  }
+
+  .food-card-price-bar {
+    padding-top: 0.35rem !important;
+    margin-top: 0.25rem !important;
+    border-top: none !important;
+  }
+
+  .food-card-price {
+    font-size: 1.05rem !important;
+  }
+
+  .food-card-add-btn {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* 3. POS Billing Mobile View */
+  section#billing {
+    padding: 2rem 0 4rem !important;
+  }
+
+  /* 4. History Section Mobile View */
+  section#history {
+    padding: 2rem 0 4rem !important;
+  }
+
+  /* 5. Total Section Mobile View */
+  section#total {
+    padding: 2rem 0 4rem !important;
+  }
+
+  .total-table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+  }
+
+  table {
+    min-width: 500px !important;
+  }
+
+  #thermal-receipt {
+    padding: 1rem !important;
+  }
+}
+
